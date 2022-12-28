@@ -1,0 +1,59 @@
+﻿@page
+@model crudAsp.Net_Core.Pages.Clients.DeleteModel
+@{
+}
+<div class="container shadow p-5">
+    <div class="row pb-2">
+        <h2>Delete Employee</h2>
+    </div>
+
+    <form method="post">
+        <div asp-validation-summary="All"></div>
+        <input type="hidden" name="id" value="@Model.clientInfo.id">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Employee Name</label>
+                <input disabled type="text" class="form-control mb-3" name="name" placeholder="Enter Name" value="@Model.clientInfo.name">
+                <span class=" alert-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label>Email</label>
+                <input disabled type="text" class="form-control mb-3" name="email" placeholder="Enter Email" value="@Model.clientInfo.email">
+                <span class=" alert-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Phone</label>
+                <input disabled type="text" class="form-control mb-3" name="phone" placeholder="Enter Phone" value="@Model.clientInfo.phone">
+                <span class=" alert-danger"></span>
+            </div>
+            <div class="form-group col-md-6 mb-3">
+                <label>Address</label>
+                <input disabled type="text" class="form-control" name="address" placeholder="Enter Address" value="@Model.clientInfo.address">
+                <span class=" alert-danger"></span>
+            </div>
+        </div>
+
+        @if (Model.successMessage.Length > 0)
+        {
+            <div class="row mb-3">
+                <div class="col-sm-9">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>@Model.successMessage</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss='alert' aria-label="Close"></button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        }
+
+
+        <button type="submit" class="btn btn-lg btn-danger p-2"><i class="bi bi-trash-fill"></i>Delete</button>
+        <a asp-controller="Employee" asp-action="Index" class="btn btn-lg btn-warning p-2">Back To List</a>
+    </form>
+
+</div>
